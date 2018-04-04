@@ -10,6 +10,18 @@ import time
 
 SESSION = requests.Session()
 
+def banner():
+    print('------------------------------------------------------')
+    print(f"""{COLOR.INFO}
+     _  _      _____                                 
+     | (_)    / ____|                                
+   __| |_ _ _| (___   ___ __ _ _ __  _ __   ___ _ __ 
+  / _` | | '__\___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
+ | (_| | | |  ____) | (_| (_| | | | | | | |  __/ |   
+  \__,_|_|_| |_____/ \___\__,_|_| |_|_| |_|\___|_|   
+                                                   {COLOR.END}""")
+    print('------------------------------------------------------')
+
 class COLOR:
     FAIL = '\x1b[1;31m'
     FOUND = '\x1b[1;32m'
@@ -45,6 +57,7 @@ def load_dict(file_name):
             yield line.strip('\n')
 
 def scan(url, wordlist, proxy=None, log_filename=None, verbose_mode=False, timeout=2):
+    banner()
     print(f'{COLOR.INFO} Starting at {get_date_time("%Y-%m-%d %H:%M:%S")} {COLOR.END}')
 
     logger = get_file_logger(log_filename)
@@ -75,6 +88,7 @@ def scan(url, wordlist, proxy=None, log_filename=None, verbose_mode=False, timeo
     print(f"{COLOR.INFO} Total requests: {len(jobs)} {COLOR.END}")
 
 def main():
+    banner()
     parser = argparse.ArgumentParser(prog="dirScanner", description="Python3.6+ is NEEDED, scan log will store in current direcotry named by date time by default")
     parser.add_argument("url", help="the target you want to scan")
     parser.add_argument("wordlist", help="the dictionary you want to use in this action")
