@@ -2,6 +2,12 @@
 
 Use concurrent.futures instead of threading to speed up.
 
+### Setup
+
+`git clone https://github.com/ucgJhe/dirScanner`
+
+`pip install -r requirements`
+
 ### Usage
 
 `dirScanner.py <URL> <WORDLIST> -p <PROXY> -o <path_to_file> -t <timeout> -v`
