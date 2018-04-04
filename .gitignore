@@ -1,4 +1,3 @@
-*.txt
 *.pyc
 *.log
 test.py
