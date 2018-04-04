@@ -11,10 +11,10 @@ import time
 SESSION = requests.Session()
 
 class COLOR:
-    FAIL = '\x1b[1;31;40m'
-    FOUND = '\x1b[1;32;40m'
-    FORB = '\x1b[1;33;40m'
-    INFO = '\x1b[1;34;40m'
+    FAIL = '\x1b[1;31m'
+    FOUND = '\x1b[1;32m'
+    FORB = '\x1b[1;33m'
+    INFO = '\x1b[1;34m'
     END =  '\x1b[0m'
 
 def get_file_logger(log_filename=None):
