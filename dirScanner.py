@@ -17,9 +17,10 @@ class COLOR:
     INFO = '\x1b[1;34m'
     END =  '\x1b[0m'
 
+def get_date_time(fmt):
+    return datetime.datetime.fromtimestamp(time.time()).strftime(fmt)
+
 def get_file_logger(log_filename=None):
-    def _get_date_time():
-        return datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d')
 
     def _get_logger():
         logger = logging.getLogger(__name__)
@@ -27,7 +28,7 @@ def get_file_logger(log_filename=None):
         return logger
 
     logger = _get_logger()
-    filename = log_filename if log_filename else _get_date_time()+'.log'
+    filename = log_filename if log_filename else get_date_time('%Y-%m-%d')+'.log'
     fh = logging.FileHandler(filename)
     fh.setFormatter(logging.Formatter('%(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S'))
     logger.addHandler(fh)
@@ -44,8 +45,7 @@ def load_dict(file_name):
             yield line.strip('\n')
 
 def scan(url, wordlist, proxy=None, log_filename=None, verbose_mode=False, timeout=2):
-    print(f'{COLOR.INFO} verbose mode turn {"on" if verbose_mode else "off"} {COLOR.END}')
-    print(f'{COLOR.INFO} current timeout: {timeout} {COLOR.END}')
+    print(f'{COLOR.INFO} Starting at {get_date_time("%Y-%m-%d %H:%M:%S")} {COLOR.END}')
 
     logger = get_file_logger(log_filename)
     url = url if url.endswith('/') else url+'/'
