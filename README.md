@@ -17,6 +17,7 @@ Use concurrent.futures instead of threading to speed up.
 2. log will be stored in current directory automatically by default.
 
 **Example:**
+
 `dirScanner.py http://localhost/ DICT.txt -p socks5://127.0.0.1:8080 -o log -t 3 -v`
 
 ### Requirements
