@@ -13,12 +13,12 @@ SESSION = requests.Session()
 def banner():
     print('------------------------------------------------------')
     print(f"""{COLOR.INFO}
-     _  _      _____                                 
-     | (_)    / ____|                                
-   __| |_ _ _| (___   ___ __ _ _ __  _ __   ___ _ __ 
+     _  _      _____
+     | (_)    / ____|
+   __| |_ _ _| (___   ___ __ _ _ __  _ __   ___ _ __
   / _` | | '__\___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
- | (_| | | |  ____) | (_| (_| | | | | | | |  __/ |   
-  \__,_|_|_| |_____/ \___\__,_|_| |_|_| |_|\___|_|   
+ | (_| | | |  ____) | (_| (_| | | | | | | |  __/ |
+  \__,_|_|_| |_____/ \___\__,_|_| |_|_| |_|\___|_|
                                                    {COLOR.END}""")
     print('------------------------------------------------------')
 
@@ -57,7 +57,6 @@ def load_dict(file_name):
             yield line.strip('\n')
 
 def scan(url, wordlist, proxy=None, log_filename=None, verbose_mode=False, timeout=2):
-    banner()
     print(f'{COLOR.INFO} Starting at {get_date_time("%Y-%m-%d %H:%M:%S")} {COLOR.END}')
 
     logger = get_file_logger(log_filename)
