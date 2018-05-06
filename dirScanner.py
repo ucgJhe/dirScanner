@@ -60,7 +60,8 @@ def scan(url, wordlist, proxy=None, log_filename=None, verbose_mode=False, timeo
     print(f'{COLOR.INFO} Starting at {get_date_time("%Y-%m-%d %H:%M:%S")} {COLOR.END}')
 
     logger = get_file_logger(log_filename)
-    url = url if url.endswith('/') else url+'/'
+    url = url if url.endswith('/') else url+'/' # check if url is terminated by slash
+    url = url if url.startswith('http') else 'http://'+url # check if url started with http
 
     with concurrent.futures.ProcessPoolExecutor() as executor:
         jobs = {executor.submit(make_request, url+line, proxy=proxy): line for line in load_dict(wordlist)}
