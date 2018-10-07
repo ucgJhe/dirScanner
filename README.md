@@ -1,6 +1,6 @@
 ### Introduction
 
-Use concurrent.futures instead of threading to speed up.
+use channel concept with multi-thread
 
 ### Setup
 
@@ -10,15 +10,17 @@ Use concurrent.futures instead of threading to speed up.
 
 ### Usage
 
-`dirScanner.py <URL> <WORDLIST> -p <PROXY> -o <path_to_file> -t <timeout> -v`
+`dirScanner.py <URL> <WORDLIST> -p <PROXY> -o <path_to_file> -t <timeout> -n <threads>`
 
 1. default timeout is 2 seconds
 
-2. log will be stored in current directory automatically by default.
+2. default threads value is double cpu counts
+
+3. log will be stored in current directory automatically by default.
 
 **Example:**
 
-`dirScanner.py http://localhost/ DICT.txt -p socks5://127.0.0.1:8080 -o log -t 3 -v`
+`dirScanner.py http://localhost/ DICT.txt -p socks5://127.0.0.1:8080 -o log -t 3 -n 20`
 
 ### Requirements
 
